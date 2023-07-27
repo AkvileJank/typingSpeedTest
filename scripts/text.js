@@ -1,4 +1,4 @@
-import { textDisplayElement, textInputElement } from "./elements.js"
+import { textDisplayElement, textInputElement } from './elements.js'
 
 const WORDS_API = 'https://api.quotable.io/random'
 

@@ -1,6 +1,6 @@
-import * as Element from "./elements.js"
-import Session from "./session.js"
-import { startTimer, escKeyPress, enterKeyPress } from "./userInterface.js"
+import * as Element from './elements.js'
+import Session from './session.js'
+import { startTimer, escKeyPress, enterKeyPress } from './userInterface.js'
 
 let timer, charIndex, mistakes, totalTyped, correctWords, incorrectChar
 const session = new Session(timer, charIndex, mistakes, totalTyped, correctWords, incorrectChar)

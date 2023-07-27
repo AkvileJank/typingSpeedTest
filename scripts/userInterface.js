@@ -1,4 +1,4 @@
-import * as Element from "./elements.js"
+import * as Element from './elements.js'
 
 export function startTimer(session) {
     Element.timerElement.innerText = session.timer

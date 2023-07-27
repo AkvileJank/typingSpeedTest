@@ -1,5 +1,5 @@
-import { getStoredsessions } from "./storage.js"
-import { createTable } from "./userInterface.js"
+import { getStoredsessions } from './storage.js'
+import { createTable } from './userInterface.js'
 import * as Element from './elements.js'
 
 export function displayMetrics() {
