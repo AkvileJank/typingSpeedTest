@@ -1,0 +1,151 @@
+:root {
+    --maincolor: #f4e8c1;
+    --quotecolor: #70a0af;
+    --textareacolor: #a0c1b9;
+    --timercolor: #331e38;
+    --correct: #4f772d;
+    --incorrect: #e71d36;
+    --font: 'Raleway', sans-serif;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--quotecolor);
+}
+
+.welcome-message {
+    margin-top: 6rem;
+    margin-bottom: 0.5rem;
+}
+
+
+body, .text-input {
+    font-family: var(--font);
+}
+
+.instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+h2{
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;;
+}
+
+.container {
+    background-color: var(--maincolor);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: 80%;
+    max-width: 90%;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+
+}
+
+.timer {
+    position: absolute;
+    top: 3rem;
+    font-size: 3rem;
+    color: var(--timercolor);
+    font-weight: bold;
+}
+
+.text-display {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    line-height: 40px;
+}
+
+.text-input {
+    background-color: var(--textareacolor);
+    border: 2px solid var(--quotecolor);
+    margin-top: 2rem;
+    outline: none;
+    width: 100%;
+    height: 10rem;
+    resize: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.text-input:focus {
+    border: solid var(--timercolor)
+}
+
+.correct {
+    color: var(--correct)
+}
+
+.incorrect {
+    color: var(--incorrect);
+    text-decoration: line-through;
+}
+
+.current {
+    color: rgb(100, 100, 100);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.invisible {
+    display: none;
+}
+
+#results-table {
+    width: 100%;
+    text-align: center;
+    background-color: var(--maincolor);
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: var(--textareacolor);
+    height: 3rem;
+    font-size: 1.5rem;
+}
+
+td{
+    padding: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.table-container {
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+.table-wrapper {
+    height: 33vh;
+    overflow-y: auto;
+    border-color: var(--maincolor);
+    border-radius: 0.5rem;
+}
+
+.wpm-message {
+    margin-bottom: 0.5rem;
+}

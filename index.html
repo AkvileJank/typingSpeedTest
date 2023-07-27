@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script src="script.js" type="module" defer></script>
+</head>
+
+<body>
+    <div class="page-name">
+    <h1>Typing speed test</h1>
+    </div>
+    <div class="timer" id="timer"></div>
+    <div class="container" id="typing-container">
+        <div class="text-display" id="text-display"></div>
+        <textarea class="text-input" id="text-input" autofocus placeholder="Start typing..."></textarea>
+    </div>
+    <div class="results-container invisible">
+        <div class="container" id="results">
+            <div class="wpm"></div>
+            <div class="accuracy"></div>
+        </div>
+        <div class="container">
+            <div class="wpm-message"></div>
+            <div class="accuracy-message"></div>
+        </div>
+        <div class="table-container">
+            <div class="table-wrapper">
+                <table class="table table-sm table-bordered" id="results-table">
+                    <thead class="table-warning">
+                        <tr>
+                            <th>Date</th>
+                            <th>Speed (WPM)</th>
+                            <th>Accuracy (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="instructions" >
+        <h2>Press 'Enter' to restart</h2>
+        <h2 id="reset">Press 'Esc' to reset the text</h2>
+    </div>
+</body>
+
+</html>
