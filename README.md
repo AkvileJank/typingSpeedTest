@@ -1,6 +1,6 @@
 # Speed Typing Test Game
 
-This is a speed typing test game where users can test their typing speed and accuracy. The game displays random quotes that users need to type as quickly and accurately as possible. The game measures typing speed in words per minute (WPM) and accuracy percentage. In this project HTMl, CSS and pure JavaScript are used without any external libraries.
+This is a speed typing test game where users can test their typing speed and accuracy. The game displays random quotes that users need to type as quickly and accurately as possible. The game measures typing speed in words per minute (WPM) and accuracy percentage. In this project HTML, CSS and pure JavaScript are used without any external libraries.
 
 ## Getting Started
 
