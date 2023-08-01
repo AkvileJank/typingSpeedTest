@@ -1,12 +1,15 @@
-import * as Element from './elements.js'
+import { textInputElement } from './elements.js'
 import Session from './session.js'
 import { startTimer, escKeyPress, enterKeyPress } from './userInterface.js'
 
-let timer, charIndex, mistakes, totalTyped, correctWords, incorrectChar
-const session = new Session(timer, charIndex, mistakes, totalTyped, correctWords, incorrectChar)
+const session = new Session()
 session.startSession()
+enableEvents()
 
-Element.textInputElement.addEventListener('input', session.initTyping)
-Element.textInputElement.addEventListener('input', () => startTimer(session), { once: true })
-Element.textInputElement.addEventListener('keydown', event => escKeyPress(event, session))
-Element.textInputElement.addEventListener('keydown', event => enterKeyPress(event))
+// made into a function with an idea to prevent from calling if error with page contents occurs
+function enableEvents() {
+    textInputElement.addEventListener('input', session.initTyping)
+    textInputElement.addEventListener('input', () => startTimer(session), { once: true })
+    textInputElement.addEventListener('keydown', event => escKeyPress(event, session))
+    textInputElement.addEventListener('keydown', event => enterKeyPress(event))
+}

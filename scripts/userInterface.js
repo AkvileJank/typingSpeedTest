@@ -9,7 +9,7 @@ export function startTimer(session) {
             return
         }
         session.timer--
-        Element.timerElement.innerText = session.timer
+        Element.timerElement.innerText = session.timer // repeated to show timer at 60 seconds at the beginning and then after each decrement
     }, 1000)
 }
 
@@ -28,7 +28,7 @@ export function escKeyPress(e, session) {
 
 export function enterKeyPress(e) {
     if (e.key === 'Enter') {
-        e.preventDefault()
+        e.preventDefault() // to escape when enter is pressed typing new line into textarea
         window.location.reload()
     }
 }
@@ -39,6 +39,7 @@ export function listenForRestart() {
 }
 
 export function createCells(result, row) {
+    //used this approach to create new table cells without using innerHTML
     const dateCell = document.createElement('td')
     const wpmCell = document.createElement('td')
     const accuracyCell = document.createElement('td')

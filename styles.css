@@ -149,3 +149,7 @@ td{
 .wpm-message {
     margin-bottom: 0.5rem;
 }
+
+.error {
+    color: var(--incorrect);
+}

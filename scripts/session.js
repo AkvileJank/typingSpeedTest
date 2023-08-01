@@ -1,4 +1,4 @@
-import { getNewText } from './text.js'
+import { setNewText } from './text.js'
 import * as Element from './elements.js'
 import { hideScreens, listenForRestart } from './userInterface.js'
 import { displayMetrics } from './progress.js'
@@ -6,56 +6,55 @@ import { saveSessionData } from './storage.js'
 
 export default class Session {
 
-    constructor(timer, charIndex, mistakes, totalTyped, corrrectWords, incorrectChar) {
-        this.timer = timer
-        this.charIndex = charIndex
-        this.mistakes = mistakes
-        this.totalTyped = totalTyped
-        this.correctWords = corrrectWords
-        this.incorrectChar = incorrectChar
-    }
 
-    startSession() {
+    // Decided to not have both constructor and startSession method as values for attributes are set in this method
+    async startSession() {
+        if (!setNewText) {
+            return
+        }
         this.timer = 60
         this.charIndex = 0
         this.mistakes = 0
         this.totalTyped = 0
         this.correctWords = 0
-        this.incorrectChar = false
-        getNewText(Element.textDisplayElement, Element.textInputElement)
-
+        this.isIncorrectChar = false
+        await setNewText(Element.textDisplayElement, Element.textInputElement) // await is used to indicate that get new Text is also async function - recommended by STL
     }
 
-    resetText() {
-        console.log('works')
+    async resetText() {
         this.charIndex = 0
-        this.incorrectChar = false
-        getNewText()
+        this.IsIncorrectChar = false
+        await setNewText()
     }
+
 
     checkCharacter(char, characters) {
-        console.log(this.charIndex)
-        if (characters.length === this.charIndex + 1 || this.charIndex < 0) {
+        // check if user typed the same amount of characters as are in displayed text, if yes, give new text
+        if (characters.length === this.charIndex + 1) { // something's not right here
             this.resetText()
-        } if (char === ' ' && characters[this.charIndex].innerText === ' ') {
-            if (this.incorrectChar) {
-                this.incorrectChar = false
+        }
+        if (char === ' ' && characters[this.charIndex].innerText === ' ') {
+            if (this.IsIncorrectChar) {
+                this.IsIncorrectChar = false
             } else {
                 this.correctWords++
             }
-        } if (char == null) {
-            this.charIndex--
-            this.totalTyped--
+        }
+        if (char == null) { // null type here is to check if user pressed backspace (deleted a character)
+            if (this.charIndex > 0) {
+                this.charIndex--
+                this.totalTyped--
+            } // check if deleted character was typed incorrect previously
             if (characters[this.charIndex].classList.contains('incorrect')) {
                 this.mistakes--
-                this.incorrectChar = false
+                this.IsIncorrectChar = false
             }
             characters[this.charIndex].classList.remove('correct', 'incorrect')
-        } else {
+        } else { // determine if typed character was correct or not
             if (characters[this.charIndex].innerText === char) {
                 characters[this.charIndex].classList.add('correct')
             } else {
-                this.incorrectChar = true
+                this.IsIncorrectChar = true
                 this.mistakes++
                 characters[this.charIndex].classList.add('incorrect')
             }
@@ -63,6 +62,7 @@ export default class Session {
             this.totalTyped++
         }
     }
+
 
     initTyping = () => {
         const characters = Element.textDisplayElement.querySelectorAll('span')
@@ -78,7 +78,7 @@ export default class Session {
         if (this.totalTyped === 0) {
             return 0
         }
-        return parseInt((((this.totalTyped - this.mistakes) / this.totalTyped) * 100).toFixed(0))
+        return parseInt((((this.totalTyped - this.mistakes) / this.totalTyped) * 100).toFixed(0)) // used parseInt as toFixed returns a string
     }
 
     createSessionData() {
