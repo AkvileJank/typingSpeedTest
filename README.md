@@ -1,8 +1,8 @@
 # Speed Typing Test Game
 
-<img width="516" alt="Screenshot 2023-08-01 at 21 47 15" src="https://github.com/AkvileJank/typingSpeedTest/assets/117858773/8ec9e314-e3c0-49a8-bfee-96c884445707">
+<img width="516" alt="Game view" src="https://github.com/AkvileJank/typingSpeedTest/assets/117858773/8ec9e314-e3c0-49a8-bfee-96c884445707">
 
-<img width="516" alt="Screenshot 2023-08-01 at 21 48 53" src="https://github.com/AkvileJank/typingSpeedTest/assets/117858773/0042ec68-ea84-490a-803a-790442c4dda4">
+<img width="516" alt="Score view" src="https://github.com/AkvileJank/typingSpeedTest/assets/117858773/0042ec68-ea84-490a-803a-790442c4dda4">
 
 This is a speed typing test game where users can test their typing speed and accuracy. The game displays random quotes that users need to type as quickly and accurately as possible. The game measures typing speed in words per minute (WPM) and accuracy percentage. In this project HTML, CSS and pure JavaScript are used without any external libraries.
 
